@@ -1,0 +1,22 @@
+#run this script from figures directory!
+set title 'Lagrange Interpolation'
+set xlabel 'x'
+set ylabel 'f(x)'
+set grid
+set term png
+set datafile separator ","
+set output './output/lagrange.png'
+# add fixed points from initial task
+plot './data/lagrange.csv' using 1:2 with line lt -1 lw 2 title 'f(x)', \
+'-' with points pt 6 ps 2 lc rgb 'red' title 'fixed points', \
+'-' with points pt 6 ps 2 lc rgb 'green' title 'required points'
+1,2
+2,3
+4,-1
+5,4
+7,2
+9,1
+e
+6,6.66069
+8,-6.32547
+e

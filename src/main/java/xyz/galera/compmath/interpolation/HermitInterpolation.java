@@ -17,7 +17,7 @@ public class HermitInterpolation {
     }
 
     private void loadMatrix() {
-        //        read init matrix from file, tab separated
+//        read init matrix from file, tab separated
         try (Stream<String> stream =
                      Files.lines(
                              Paths.get(Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource("hermite_init.txt")).toURI()))) {
@@ -50,14 +50,12 @@ public class HermitInterpolation {
             for (int i = 0; i < z.length; i++) {
                 factorMatrix.get(step)[i] = initialMatrix.get(z[i])[0];
             }
-//            System.out.println(Arrays.deepToString(factorMatrix.get(step)));
         } else {
             factorMatrix.put(step, new Float[z.length]);
             for (int i = 0; i + step < z.length; i++) {
                 if (z[i + step] - z[i] == 0) {
                     factorMatrix.get(step)[i] = initialMatrix.get(z[i])[step];
                 } else {
-//                    System.out.println(String.format("i=%s, step=%s, fM=%s", i, step, Arrays.deepToString(factorMatrix.get(step -1))));
                     factorMatrix.get(step)[i] = (factorMatrix.get(step - 1)[i + 1] - factorMatrix.get(step - 1)[i]) / (z[i + step] - z[i]);
                 }
             }
@@ -91,7 +89,7 @@ public class HermitInterpolation {
         hermit.calculateFactorMatrix();
         Map<Float, Float> plot = new TreeMap<>();
 //        evaluation
-        for (float i = 0.5f; i <= 4.5f; i+=0.01) {
+        for (float i = 0.5f; i <= 4.5f; i += 0.01) {
             plot.put((float) i, hermit.evaluate((float) i));
             System.out.println(String.format("%.2f, %.10f", i, plot.get(i)));
         }
