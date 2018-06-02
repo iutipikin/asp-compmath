@@ -1,0 +1,11 @@
+#run this script from figures directory!
+set title 'Integrated Function'
+set xlabel 'x'
+set ylabel 'f(x)'
+set grid
+#set term png
+set terminal pdf linewidth 1
+set datafile separator ","
+set output './output/integrator2.pdf'
+# add fixed points from initial task
+plot './data/simpsons.csv' using 1:2 with line lw 2 lc rgb 'black' title 'f(x)'

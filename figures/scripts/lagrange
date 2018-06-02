@@ -1,13 +1,14 @@
 #run this script from figures directory!
 set title 'Lagrange Interpolation'
 set xlabel 'x'
-set ylabel 'f(x)'
+set ylabel 'L(x)'
 set grid
-set term png
+#set term png
+set terminal pdf linewidth 1
 set datafile separator ","
-set output './output/lagrange.png'
+set output './output/lagrange.pdf'
 # add fixed points from initial task
-plot './data/lagrange.csv' using 1:2 with line lt -1 lw 2 title 'f(x)', \
+plot './data/lagrange.csv' using 1:2 with line lt -1 lw 2 title 'L(x)', \
 '-' with points pt 6 ps 2 lc rgb 'red' title 'fixed points', \
 '-' with points pt 6 ps 2 lc rgb 'green' title 'required points'
 1,2
