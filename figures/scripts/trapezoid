@@ -26,10 +26,12 @@ set output './output/integrator.pdf'
 
 # add fixed points from initial task
 plot './data/trapezoidal.csv' using 1:2 w filledcurves above y1=0 lt 5 lc rgb 'light-green' title 'Int(x)', \
+'./data/trapezoidal.csv' using 1:2 w filledcurves below y1=0 fill transparent pattern 3 border lt 5 lc rgb 'light-green' notitle, \
 './data/trapezoidal.csv' using 1:2 w lines lw 2 title 'f(x)', \
 '-' w filledcurves above y1=0 fill transparent pattern 6 lc rgb 'red' title 'Int(Trapezium)' , \
-'-' w filledcurves below y1=0 fill transparent pattern 6 lc rgb 'red' title 'Int(Trapezium)' , \
-'-' w lines lt -1 lw 2 lc rgb 'light-red' title 'Trapezium'
+'-' w filledcurves below y1=0 fill transparent pattern 6 lc rgb 'red' notitle , \
+'-' w lines lt -1 lw 2 lc rgb 'light-red' title 'Trapezium', \
+'-' w lines lc rgb '#808080' lt 1 notitle
 -15,-0.240959
 7,0.24954
 e
@@ -38,4 +40,7 @@ e
 e
 -15,-0.240959
 7,0.24954
+e
+-15,0
+7,0
 e
