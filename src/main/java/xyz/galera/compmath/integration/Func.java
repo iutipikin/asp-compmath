@@ -31,7 +31,7 @@ public class Func {
     }
 
     public String toString() {
-        return "cos(x^2 + (g-p)x + (m-p))";
+        return String.format("cos(x^2 + %.2f*x + %.2f)", g-p, m-p);
     }
 
     public void toCSV (String filename, Integer grid) {
