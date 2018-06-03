@@ -88,7 +88,7 @@ public class GaussianQuadrature {
         for (int i=2; i<=9; i++){
             GaussianQuadrature q = new GaussianQuadrature(i);
             System.out.println(q.toString());
-            Func f = new Func(2f,0f,1f);
+            Func f = new Func(2f,1f,1f);
             System.out.println(f.toString());
             System.out.println(String.format("N=%s, Result: %.7f at [%.2f, %.2f]\n\n",i, q.integrate(f::evaluate, f.getBoundaries().getKey(), f.getBoundaries().getValue()),
                     f.getBoundaries().getKey(), f.getBoundaries().getValue()));
