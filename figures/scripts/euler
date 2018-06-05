@@ -1,5 +1,5 @@
 #run this script from figures directory!
-set title 'Euler modified method / Accuracy x N-steps'
+set title 'Сходимость мод. метода Эйлера'
 set xlabel 'x'
 set ylabel 'y`=f(x)'
 set grid
@@ -23,5 +23,5 @@ set datafile separator ","
 set output './output/euler.pdf'
 
 # add fixed points from initial task
-plot './data/euler.csv' using 1:2 w lines lt -1 lw 2 lc rgb 'light-red' title 'y1`(x)', \
-'./data/euler.csv' using 3:4 w lines lt -1 lw 2 lc rgb 'light-green' title 'y2`(x)'
+plot './data/euler.csv' using 1:2 w lines lt -1 lw 2 lc rgb 'light-grey' title 'y1`(x)', \
+'./data/euler.csv' using 3:4 w lines lt -1 lw 2 lc rgb 'black' title 'y2`(x)'

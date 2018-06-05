@@ -30,19 +30,14 @@ public class EulerMod {
             for (int j=1; j < deg + 1; j++) {
                 args[j] = yArr[i][j - 1];
             }
-//            System.out.println(String.format("INIT ARGS y1%s=%.4f y2%s=%.4f",i, args[1], i, args[2]));
             for (int j = 0; j < deg; j++) {
 //                forecast for y_j
                 args[j+1] = yArr[i][j] + h * fArr.get(j).apply(args);
-//                yArr[i+1][j] = yArr[i][j] + (h / 2) * ( fArr.get(j).apply(args) + fArr.get(j).apply(args));
             }
             for (int j = 0; j < deg; j++) {
 //                forecast for y_j
-//                args[j+1] = yArr[i][j] + h * fArr.get(j).apply(args);
                 yArr[i+1][j] = yArr[i][j] + (h / 2) * ( fArr.get(j).apply(args) + fArr.get(j).apply(args));
             }
-//            System.out.println(String.format("CALCULATED ARGS y1%s=%.4f y2%s=%.4f",i, args[1], i, args[2]));
-//            System.out.println(String.format("x= %.2f y1= %.4f y2= %.4f",1 + h*i, yArr[i][0], yArr[i][1]));
         }
     }
 

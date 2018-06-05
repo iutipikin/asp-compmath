@@ -1,5 +1,5 @@
 #run this script from figures directory!
-set title 'Lagrange Interpolation'
+set title 'Интерполяционный полином Лагранжа'
 set xlabel 'x'
 set ylabel 'L(x)'
 set grid
@@ -9,8 +9,8 @@ set datafile separator ","
 set output './output/lagrange.pdf'
 # add fixed points from initial task
 plot './data/lagrange.csv' using 1:2 with line lt -1 lw 2 title 'L(x)', \
-'-' with points pt 6 ps 2 lc rgb 'red' title 'fixed points', \
-'-' with points pt 6 ps 2 lc rgb 'green' title 'required points'
+'-' with points pt 3 ps 1 lc rgb '#0f0f0f' title 'начальные точки', \
+'-' with points pt 3 ps 1 lc rgb '#afafaf' title 'искомые точки'
 1,2
 2,3
 4,-1

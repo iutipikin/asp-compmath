@@ -1,5 +1,5 @@
 #run this script from figures directory!
-set title 'Boundary Value Problem / Chasing'
+set title 'Краевая задача / Метод прогонки'
 set xlabel 'x'
 set ylabel 'y_i(x)'
 set grid

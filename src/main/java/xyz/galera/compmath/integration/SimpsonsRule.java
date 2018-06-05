@@ -1,9 +1,9 @@
 package xyz.galera.compmath.integration;
 
+import xyz.galera.compmath.utils.CSVGen;
+
 public class SimpsonsRule {
-
     private static Func f;
-
     public Float integrate(Float a, Float b, int N) {
 //        step
         Float h = (b - a) / (N - 1);
@@ -36,7 +36,13 @@ public class SimpsonsRule {
     public static void main(String[] args) {
         Float g=8f, m=-14f, p=1f;
         SimpsonsRule tr = new SimpsonsRule(g,m,p);
-        System.out.println(String.format("g=%.2f, m=%.2f, p=%.2f, func=%s, int=%.10f", g, m, p, f.toString(), tr.evaluate(10000)));
-        f.toCSV("simpsons.csv", 200);
+        String result = "";
+        for (int i = 10; i < 700; i+=10) {
+            System.out.println(String.format("g=%.2f, m=%.2f, p=%.2f, func=%s, int=%.6f", g, m, p, f.toString(), tr.evaluate(i)));
+            result = result.concat(String.format("%s, %.6f\n", i, tr.evaluate(i)));
+        }
+        CSVGen.toCSV("simpsons.csv", result.getBytes());
+//        System.out.println(String.format("g=%.2f, m=%.2f, p=%.2f, func=%s, int=%.10f", g, m, p, f.toString(), tr.evaluate(10000)));
+//        f.toCSV("simpsons.csv", 200);
     }
 }

@@ -37,8 +37,6 @@ public class BoundaryValueProblem {
             }
             v[i] = -gmi / (bi + ai * v[i - 1]);
             u[i] = (phi - ai * u[i - 1]) / (bi + ai * v[i]);
-//            System.out.println(String.format("x[%s]=%.4f, a=%.9f, b=%.9f, gm=%.9f, phi=%.9f", i, xi, ai, bi, gmi, phi));
-//            System.out.println(String.format("v[%s]=%.9f, u[%s]=%.9f", i, v[i], i, u[i]));
         }
 
         double an = -d2;
@@ -61,10 +59,11 @@ public class BoundaryValueProblem {
         f = _f;
     }
 
-    //    variant #5
+//    variant #5
 //    c1= -1, c2=0, c=1;
 //    d1=0.74, d2=0.45, d=0;
 //    a=0, b=PI;
+//    f(x) = 1/cos(x) - имеет разрыв в pi/2
     public static void main(String[] args) {
         BoundaryValueProblem bvp = new BoundaryValueProblem((x) -> pow(x, 2), (x) -> pow(x, 3), (x) -> 1f/cos(x));
         double a = 0, b = PI;

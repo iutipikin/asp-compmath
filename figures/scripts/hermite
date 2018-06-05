@@ -1,5 +1,5 @@
 #run this script from figures directory!
-set title 'Hermite Interpolation'
+set title 'Эрмитова Интерполяция'
 set xlabel 'x'
 set ylabel 'H(x)'
 set grid
@@ -8,7 +8,8 @@ set terminal pdf linewidth 1
 set datafile separator ","
 set output './output/hermite.pdf'
 # add fixed points from initial task
-plot './data/hermite.csv' using 1:2 with line lt -1 lw 2 title 'H(x)', '-' with points pt 6 ps 2 lc rgb 'red' title 'fixed points'
+plot './data/hermite.csv' using 1:2 with line lt -1 lw 2 title 'H(x)', \
+'-' with points pt 3 ps 1 lc rgb 'black' title 'Известные значения'
 1,2
 3,3
 4,2
